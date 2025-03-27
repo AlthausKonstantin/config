@@ -2,21 +2,22 @@
 {
   nix-homebrew = {
     enable = true;
-
     user = machineConfig.username;
-
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
     };
-
-    # casks = [
-    #   "visual-studio-code"
-    # ];
-
+  };
+  
+  homebrew = {
+    casks = [
+      "visual-studio-code"
+    ];
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+    };
     mutableTaps = false;
-    onActivation.autoUpdate = true;
-    onActivation.cleanup = "zap";
   };
 }
