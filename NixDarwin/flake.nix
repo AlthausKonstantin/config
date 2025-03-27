@@ -51,7 +51,7 @@
         modules = [
           ./darwin.nix # load settings for mac os
           nix-homebrew.darwinModules.nix-homebrew
-          (import ./homebrew.nix) # load homebrew settings
+          ./brew.nix # load homebrew settings
           home-manager.darwinModules.home-manager
           (import ./home.nix) # load settings of home manager
         ];

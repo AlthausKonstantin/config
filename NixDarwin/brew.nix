@@ -11,9 +11,9 @@
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
     };
 
-    casks = [
-      "visual-studio-code"
-    ];
+    # casks = [
+    #   "visual-studio-code"
+    # ];
 
     mutableTaps = false;
     onActivation.autoUpdate = true;
