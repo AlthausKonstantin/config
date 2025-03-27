@@ -5,7 +5,6 @@
 { pkgs, machineConfig, ... }:
 {
   system.stateVersion = 5;
-  # ids.gids.nixbld = 30000; # TODO: remove this when changing to next Mac and reinstalling
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
