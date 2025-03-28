@@ -42,23 +42,36 @@
         enable = true;
         history.save = 10000;
         enableCompletion = true;
-        # # enableBashCompletion = true;
-        # # autosuggestions.enable = true;
+        autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         plugins = [
           {
+            # load my own p10k config file from this repo
             name = "powerlevel10k-config";
-            src = ../Zsh/.p10k.zsh;
-            file = "p10k.zsh";
+            src = ../Zsh;
+            file = ".p10k.zsh";
+          }
+          {
+            # enable powerlevel10k theme
+            name = "zsh-powerlevel10k";
+            src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
+            file = "powerlevel10k.zsh-theme";
           }
         ];
         oh-my-zsh = {
+          # use oh-my-zsh for other plugins
+          # TODO: Can I use oh-my-zsh to load ../Zsh/.p10k.zsh?
           enable = true;
-          plugins = [ "git" ];
+          plugins = [
+            "git"
+          ];
+          shellAliases = {
+            # alias to rebuild main flake of this repo
+            update = "darwin-rebuild switch --verbose --show-trace --flake ~/config/NixDarwin";
+            # alias of eza
+            ls = "eza --all --icons=always ----group-directories-first";
+          };
         };
-        # users.defaultUserShell = pkgs.zsh;
-        # system.userActivationScripts.zshrc = "touch .zshrc";
-        # environment.shells = with pkgs; [ zsh ];
       };
     };
   };
