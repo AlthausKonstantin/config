@@ -9,14 +9,6 @@
       home.packages = with pkgs; [
 
         # basic cli stuff
-        zsh-powerlevel10k
-        # zsh-forgit # https://github.com/wfxr/forgit, https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/shells/zsh/zsh-forgit/default.nix#L51
-        # zsh-fzf-history-search
-        # zsh-fzf-tab
-        fzf
-        bat
-        eza
-        zoxide
         ripgrep-all
 
         # git tools
@@ -72,6 +64,31 @@
           # alias of eza
           ls = "eza --all --icons=always --group-directories-first";
         };
+      };
+      programs.eza = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      programs.zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+        options = [
+          "--cmd cd"
+        ];
+      };
+      programs.fzf = {
+        enable = true;
+        enableZshIntegration = true;
+        fileWidgetOptions = [
+          "--preview 'bat -n --color=always --line-range :500 {}'"
+        ];
+        changeDirWidgetOptions = [
+          "--preview 'eza --tree --color=always {} | head -200'"
+        ];
+      };
+      programs.bat = {
+        enable = true;
+        config.theme = "TwoDark";
       };
     };
   };
