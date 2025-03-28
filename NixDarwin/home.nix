@@ -45,11 +45,16 @@
         # # enableBashCompletion = true;
         # # autosuggestions.enable = true;
         syntaxHighlighting.enable = true;
-        promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        plugins = [
+          {
+            name = "powerlevel10k-config";
+            src = ../Zsh/.p10k.zsh;
+            file = "p10k.zsh";
+          }
+        ];
         oh-my-zsh = {
           enable = true;
-          plugins = [ "git" "thefuck" ];
-          theme = "robbyrussell";
+          plugins = [ "git" ];
         };
         # users.defaultUserShell = pkgs.zsh;
         # system.userActivationScripts.zshrc = "touch .zshrc";
