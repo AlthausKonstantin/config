@@ -1,5 +1,6 @@
 { machineConfig, pkgs, ... }: {
   home-manager = {
+    backupFileExtension = "bak";
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${machineConfig.username} = {
@@ -39,18 +40,18 @@
       ];
       programs.zsh = {
         enable = true;
-        # enableCompletion = true;
+        enableCompletion = true;
         # enableBashCompletion = true;
         # autosuggestions.enable = true;
-        # syntaxHighlighting.enable = true;
-        # histSize = 10000;
-        # prompInit = ''
-        #   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-        # '';
+        syntaxHighlighting.enable = true;
+        histSize = 10000;
+        prompInit = ''
+          source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        '';
         # ohMyZsh = {
         #   enable = true;
         # };
-        # users.defaultUserShell = pkgs.zsh;
+        users.defaultUserShell = pkgs.zsh;
         # system.userActivationScripts.zshrc = "touch .zshrc";
         # environment.shells = with pkgs; [ zsh ];
       };
