@@ -46,7 +46,7 @@
         syntaxHighlighting.enable = true;
         plugins = [
           {
-            # load my own p10k config file from this repo
+            # load my own p10k config file from this repo, contains my p10k theme
             name = "powerlevel10k-config";
             src = ../Zsh;
             file = ".p10k.zsh";
@@ -65,12 +65,12 @@
           plugins = [
             "git"
           ];
-          shellAliases = {
-            # alias to rebuild main flake of this repo
-            update = "darwin-rebuild switch --verbose --show-trace --flake ~/config/NixDarwin";
-            # alias of eza
-            ls = "eza --all --icons=always ----group-directories-first";
-          };
+        };
+        shellAliases = {
+          # alias to rebuild main flake of this repo
+          update = "darwin-rebuild switch --verbose --show-trace --flake ~/config/NixDarwin";
+          # alias of eza
+          ls = "eza --all --icons=always --group-directories-first";
         };
       };
     };
