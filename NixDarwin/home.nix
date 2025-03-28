@@ -40,18 +40,18 @@
       ];
       programs.zsh = {
         enable = true;
+        history.save = 10000;
         enableCompletion = true;
-        # enableBashCompletion = true;
-        # autosuggestions.enable = true;
+        # # enableBashCompletion = true;
+        # # autosuggestions.enable = true;
         syntaxHighlighting.enable = true;
-        histSize = 10000;
-        prompInit = ''
-          source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-        '';
-        # ohMyZsh = {
-        #   enable = true;
-        # };
-        users.defaultUserShell = pkgs.zsh;
+        promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        oh-my-zsh = {
+          enable = true;
+          plugins = [ "git" "thefuck" ];
+          theme = "robbyrussell";
+        };
+        # users.defaultUserShell = pkgs.zsh;
         # system.userActivationScripts.zshrc = "touch .zshrc";
         # environment.shells = with pkgs; [ zsh ];
       };

@@ -12,26 +12,9 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # homebrew
-    nix-homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }@inputs:
+  outputs = { nixpkgs, darwin, home-manager, ... }@inputs:
     let
       # properties and settings of my machine
       machineConfig = {
@@ -50,7 +33,6 @@
         specialArgs = { inherit inputs machineConfig; };
         modules = [
           ./darwin.nix # load settings for mac os
-          nix-homebrew.darwinModules.nix-homebrew
           ./brew.nix # load homebrew settings
           home-manager.darwinModules.home-manager
           (import ./home.nix) # load settings of home manager
