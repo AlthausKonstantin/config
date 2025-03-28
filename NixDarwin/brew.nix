@@ -9,15 +9,17 @@
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
     };
   };
-  
   homebrew = {
-    casks = [
-      "visual-studio-code"
-    ];
+    enable = true;
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
     };
-    mutableTaps = false;
+    casks = [
+      "obsidian"
+      "whatsapp"
+      "signal"
+      "wezterm"
+    ];
   };
 }
