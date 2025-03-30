@@ -1,10 +1,11 @@
-{ machineConfig, inputs, ... }:
+{ inputs, ... }:
 {
   homebrew = {
     enable = true;
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
+      extraFlags = [ "--verbose" ];
     };
     taps = [
       "homebrew/core"
@@ -16,6 +17,8 @@
       "whatsapp"
       "signal"
       "wezterm"
+      "rectangle"
+      "mac-mouse-fix"
     ];
   };
 }
