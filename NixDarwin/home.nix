@@ -30,6 +30,8 @@
         maccy
         warp-terminal
       ];
+      home.file.".gitconfig".source = ../Git/.gitconfig;
+      xdg.configFile.nvim.source = ../Nvim;
       programs.zsh = {
         enable = true;
         history.save = 10000;
