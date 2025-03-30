@@ -36,6 +36,7 @@
           ./brew.nix # load homebrew settings
           home-manager.darwinModules.home-manager
           (import ./home.nix) # load settings of home manager
+          ./binaries.nix
         ];
       };
     };
