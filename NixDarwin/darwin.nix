@@ -10,6 +10,12 @@
   '';
   #ssl-cert-file = /etc/ssl/certs/w00402.cer
 
+  launchd.user.agents = {
+    maccy = {
+      command = "${pkgs.maccy}/bin/maccy";
+    };
+  };
+
 
   users.users.${machineConfig.username} = {
     name = machineConfig.username;
