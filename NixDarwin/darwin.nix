@@ -14,6 +14,12 @@
     maccy = {
       command = "${pkgs.maccy}/bin/maccy";
     };
+    rectangle = {
+      script = "open /Applications/Rectangle.app";
+    };
+    mouseFix = {
+      script = "open /Applications/Mac\ Mous\ Fix.app";
+    };
   };
 
 
