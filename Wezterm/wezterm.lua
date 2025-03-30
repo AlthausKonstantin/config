@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 config.font = wezterm.font("0xProto")
-config.font_size = 9
+config.font_size = 19
 
 config.enable_tab_bar = false
 
