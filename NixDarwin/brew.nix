@@ -13,9 +13,10 @@
       "homebrew/cask"
     ];
     casks = [
+      "calibre"
       "obsidian"
-      "whatsapp"
       "signal"
+      "whatsapp"
       "wezterm"
       "rectangle"
       "mac-mouse-fix"
