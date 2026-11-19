@@ -34,6 +34,7 @@
         docker_26
         texliveFull
         python314
+        uv # python package & project manager
         rustup
 
       ];
