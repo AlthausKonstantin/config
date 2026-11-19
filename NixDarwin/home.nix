@@ -26,6 +26,8 @@
         tree-sitter # CLI for compiling treesitter parsers
         nodejs # needed by many Mason language servers
         gdu # disk usage toggle, <Leader>tu
+        # AstroNvim looks for `gdu-go` on macOS (Homebrew's name), Nix ships `gdu`
+        (writeShellScriptBin "gdu-go" ''exec ${gdu}/bin/gdu "$@"'')
         bottom # process viewer toggle, <Leader>tt
 
         # coding

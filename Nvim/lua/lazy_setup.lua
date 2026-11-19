@@ -16,6 +16,7 @@ require("lazy").setup({
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrotheme", "habamax" } },
+  rocks = { enabled = false }, -- no plugin needs luarocks; silences the hererocks health error
   ui = { backdrop = 100 },
   performance = {
     rtp = {
